@@ -1,0 +1,25 @@
+body{
+    background-color: #9abad3;
+}
+
+.mine{
+    float: right;
+    border: 1px solid #000;
+    border-radius: 10%;
+    display: inline-block;
+    clear: both;
+    padding: 2%;
+    max-width: 50%;
+    background-color: #fff;
+}
+
+.others{
+    float: left;
+    border: 1px solid #000;
+    border-radius: 10%;
+    display: inline-block;
+    clear: both;
+    padding: 2%;
+    max-width: 50%;
+    background-color: #fff;
+}
