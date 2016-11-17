@@ -14,8 +14,11 @@ app.get('/',function (req,res) {
 io.on('connection',function (socket) {
     console.log('connected!');
     socket.on('sendMsg',function (data) {
-        console.log(data);
-        socket.broadcast.emit('receiveMsg',data);
+        var newData = {
+            "desc" : data,
+            "name" : "Kang"
+        }
+        socket.broadcast.emit('receiveMsg',newData);
     });
 });
 
