@@ -1,10 +1,25 @@
 var express = require('express');
 var app = express();
 var http = require('http').Server(app);
+var bodyParser = require('body-parser');
+var mysql = require('mysql');
+var session = require('express-session');
 var io = require('socket.io')(http);
 var path = require('path');
 
 app.use(express.static(path.join(__dirname+'/public')));
+app.use(session({
+    secret: 'socket-chat',
+    resave: false,
+    saveUninitialized: true
+}));
+app.use(bodyParser.urlencoded({
+    extended:true
+}));
+app.use(bodyParser.text());
+
+app.set('views',path.join(__dirname,'views'));
+app.set('view engine', 'ejs');
 
 app.get('/',function (req,res) {
   res.sendFile(__dirname + "/public/html/index.html")

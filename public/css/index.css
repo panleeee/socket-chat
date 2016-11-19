@@ -12,21 +12,28 @@ body{
 
 h1{
   background-color: rgba(213,213,213,0.5);
-  display: inline;
   font-size: 5rem;
-  padding: 1rem;
   color: #fff;
-  position: relative;
   top : calc(85vh / 2);
+  margin: auto;
+  width: 30vw;
+  position: relative;
+  top: 40vh;
 }
 
 #start{
   border: 1px solid #fff;
   background-color: rgba(255, 255, 255, 0);
   color: #fff;
+  position: relative;
+  top: 65vh;
   font-size: 1.5rem;
   padding: 0.5rem;
-  display: inline;
-  position: absolute;
-  bottom: 5vh;
+  width: 5rem;
+  margin: auto;
+
+}
+
+#start:hover{
+    cursor: pointer;
 }
