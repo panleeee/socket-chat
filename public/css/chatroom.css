@@ -1,0 +1,74 @@
+@font-face {
+    font-family: 'over';
+    src : url('../fonts/koverwatch.ttf');
+}
+
+body{
+    background-color: #9abad3;
+        font-family: 'over' !important;
+}
+
+#content{
+    margin-bottom: 10%;
+    height: 65vh;
+    overflow-y: scroll;
+}
+
+.mine{
+    float: right;
+    display: inline-block;
+    clear: both;
+    margin-top: 1%;
+    max-width: 50%;
+}
+
+.others{
+    float: left;
+    display: inline-block;
+    clear: both;
+    margin-top: 1%;
+    max-width: 50%;
+}
+.otherContent{
+    border: 1px solid #000;
+    border-radius: 10%;
+    background-color: #fff;
+    padding: 2rem;
+}
+.myContent{
+    padding: 2rem;
+    border: 1px solid #000;
+    border-radius: 10%;
+    background-color: #fff;
+}
+.otherTime{
+    float: left;
+}
+.myTime{
+    float: right;
+}
+.name{
+    /*position: relative;
+    bottom: 20px;*/
+}
+.myName{
+    float: right;
+}
+
+
+#text{
+    position: fixed;
+    bottom: 0;
+    left: 0;
+}
+#msg{
+    height: 15vh;
+}
+#submit{
+    height: 15vh;
+}
+footer{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}

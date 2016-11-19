@@ -6,9 +6,12 @@ var path = require('path');
 
 app.use(express.static(path.join(__dirname+'/public')));
 
-
 app.get('/',function (req,res) {
-    res.sendFile(__dirname+'/public/html/index.html');
+  res.sendFile(__dirname + "/public/html/index.html")
+});
+
+app.get('/chatroom',function (req,res) {
+    res.sendFile(__dirname+'/public/html/chatroom.html');
 });
 
 io.on('connection',function (socket) {

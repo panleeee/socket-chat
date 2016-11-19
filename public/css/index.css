@@ -1,74 +1,32 @@
-@font-face {
-    font-family: 'over';
-    src : url('../fonts/koverwatch.ttf');
-}
-
 body{
-    background-color: #9abad3;
-        font-family: 'over' !important;
+  margin: 0;
 }
 
-#content{
-    margin-bottom: 10%;
-    height: 65vh;
-    overflow-y: scroll;
+#background{
+  width: 100vw;
+  height: 100vh;
+  background-image: url("https://source.unsplash.com/category/objects");
+  background-size: cover;
+  text-align: center;
 }
 
-.mine{
-    float: right;
-    display: inline-block;
-    clear: both;
-    margin-top: 1%;
-    max-width: 50%;
+h1{
+  background-color: rgba(213,213,213,0.5);
+  display: inline;
+  font-size: 5rem;
+  padding: 1rem;
+  color: #fff;
+  position: relative;
+  top : calc(85vh / 2);
 }
 
-.others{
-    float: left;
-    display: inline-block;
-    clear: both;
-    margin-top: 1%;
-    max-width: 50%;
-}
-.otherContent{
-    border: 1px solid #000;
-    border-radius: 10%;
-    background-color: #fff;
-    padding: 2rem;
-}
-.myContent{
-    padding: 2rem;
-    border: 1px solid #000;
-    border-radius: 10%;
-    background-color: #fff;
-}
-.otherTime{
-    float: left;
-}
-.myTime{
-    float: right;
-}
-.name{
-    /*position: relative;
-    bottom: 20px;*/
-}
-.myName{
-    float: right;
-}
-
-
-#text{
-    position: fixed;
-    bottom: 0;
-    left: 0;
-}
-#msg{
-    height: 15vh;
-}
-#submit{
-    height: 15vh;
-}
-footer{
-    position: absolute;
-    bottom: 0;
-    left: 0;
+#start{
+  border: 1px solid #fff;
+  background-color: rgba(255, 255, 255, 0);
+  color: #fff;
+  font-size: 1.5rem;
+  padding: 0.5rem;
+  display: inline;
+  position: absolute;
+  bottom: 5vh;
 }
