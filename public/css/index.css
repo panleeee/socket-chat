@@ -10,9 +10,9 @@ body{
   text-align: center;
 }
 
-h1{
+#welcome{
   background-color: rgba(213,213,213,0.5);
-  font-size: 5rem;
+  font-size: 8rem;
   color: #fff;
   top : calc(85vh / 2);
   margin: auto;
@@ -27,13 +27,27 @@ h1{
   color: #fff;
   position: relative;
   top: 65vh;
-  font-size: 1.5rem;
+  font-size: 4rem;
   padding: 0.5rem;
-  width: 5rem;
+  width: 20rem;
   margin: auto;
 
 }
 
 #start:hover{
     cursor: pointer;
+}
+
+form{
+  margin-left: 10%;
+}
+
+.form-element{
+  width: 15rem;
+  height: 3rem;
+  float: left;
+}
+
+#signInSubmit{
+  height: 6rem;
 }

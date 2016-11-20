@@ -1,16 +1,67 @@
 <!DOCTYPE html>
 <html>
-  <head>
+
+<head>
     <meta charset="utf-8">
     <title>Socket Chat</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="../css/index.css">
-  </head>
-  <body>
+</head>
+
+<body>
     <div id="background">
-      <h1>Welcome!</h1>
-      <div id="start">
-          START!
-      </div>
+        <h1 id="welcome">Welcome!</h1>
+        <div id="start" data-toggle="modal" data-target=".bd-example-modal-sm">
+            START!
+        </div>
     </div>
-  </body>
+
+    <!-- Sign in modal -->
+    <div class="modal fade bd-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-sm">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1>Sign in</h1>
+                </div>
+                <div class="modal-body">
+                    <form id="signInForm">
+                        <input type="text" name="signInId" placeholder="ID" class="form-element">
+                        <input type="password" name="signInPwd" placeholder="Password" class="form-element">
+                        <input type="submit" name="name" value="Sign in" id="signInSubmit">
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" name="cancel" data-dismiss="modal">Cancel</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Sign up modal-->
+    <div class="modal fade bd-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true" id="signUpForm">
+        <div class="modal-dialog modal-sm">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1>Sign up</h1>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <input type="text" name="signUpId" placeholder="ID" class="form-element" id="signUpId">
+                        <input type="password" name="signUpPwd" placeholder="Password" class="form-element" id="signUpPwd">
+                        <input type="email" name="email" placeholder="E-mail" class="form-element" id="signUpEmail">
+                        <input type="text" name="nickname" placeholder="Nickname" class="form-element" id="signUpNick">
+                        <input type="submit" name="name" value="Sign up" id="signUpSubmit">
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" name="cancel" data-dismiss="modal">Cancel</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+
 </html>

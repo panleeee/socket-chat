@@ -1,33 +1,60 @@
 $(document).ready(function() {
-    var socket = io();
-
-    $("#submit").on("click", function() {
-        var now = new Date();
-        var nowTime = now.getHours() + " : " + now.getMinutes();
-        $("#content").append(`
-            <div class = "mine">
-                <span>name</span>
-                <p class = myContent>
-                    ${$("#msg").val()}<br>
-                </p>
-                <span class ="otherTime">${nowTime}</span>
-            </div>
-            `);
-        socket.emit('sendMsg', $("#msg").val());
-        $("#msg").val("");
+    $("#signInSubmit").on("click", function() {
+        $.ajax({
+            dataType: "JSON",
+            url: "/signIn",
+            type: "POST",
+            success: function(data) {
+                if (data == "failed")
+                    alert("ID 또는 비밀번호를 확인하세요");
+            }
+        })
     });
 
-    socket.on('receiveMsg',function (data) {
-        var now = new Date();
-        var nowTime = now.getHours() + " : " + now.getMinutes();
-        $("#content").append(`
-            <div class = "others">
-                <span>${data.name}</span>
-                <p class = "otherContent">
-                    ${data.desc}
-                </p>
-                <span class = "myTime">${nowTime}</span>
-            </div>
-            `);
+    $("#signUpSubmit").on("click", function() {
+        $.ajax({
+            dataType: "JSON",
+            url: "/signUp"
+            type: "POST",
+            success: function(data) {
+
+            };
+        });
+    });
+
+    $("#signUpId").focusout(function() {
+        $.ajax({
+            dataType: "JSON",
+            url: "/checkID",
+            type: "POST",
+            data: $("#signUpId").val(),
+            success: function(data) {
+
+            }
+        });
+    });
+
+    $("#signUpEmail").focusout(function() {
+        $.ajax({
+            dataType: "JSON",
+            url: "/checkEmail",
+            type: "POST",
+            data: $("#signUpEmail").val(),
+            success: function(data) {
+
+            }
+        });
+    });
+
+    $("#signUpNick").focusout(function () {
+      $.ajax({
+        dataType : "JSON",
+        url: "/checkNickname",
+        type : "POST",
+        data : $("#signUpNick").val(),
+        success : function (data) {
+
+        };
+      });
     });
 });

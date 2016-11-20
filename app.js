@@ -22,11 +22,15 @@ app.set('views',path.join(__dirname,'views'));
 app.set('view engine', 'ejs');
 
 app.get('/',function (req,res) {
-  res.sendFile(__dirname + "/public/html/index.html")
+  res.sendFile(__dirname+'/public/html/index.html');
 });
 
 app.get('/chatroom',function (req,res) {
     res.sendFile(__dirname+'/public/html/chatroom.html');
+});
+
+app.post('/checkID',function (req,res) {
+  var id = req.body.
 });
 
 io.on('connection',function (socket) {
