@@ -30,7 +30,24 @@ app.get('/chatroom',function (req,res) {
 });
 
 app.post('/checkID',function (req,res) {
-  var id = req.body.
+  var id = req.body.signUpId;
+  var query = "select id from user where = '"+id+"'";
+
+});
+
+app.post('/checkEmail',function (req,res) {
+  var email = req.body.signUpEmail;
+  var query = "select email from user where = '"+email+"'";
+});
+
+app.post('/checkNickname',function (req,res) {
+  var nickname = req.body.signUpNick;
+  var query = "select nickname from user where = '"+nickname+"'";
+});
+
+app.post('/signIn',function (req,res) {
+  var id = req.body.signInId;
+  var pwd = req.body.signInPwd;
 });
 
 io.on('connection',function (socket) {
