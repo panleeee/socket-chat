@@ -4,6 +4,7 @@ $(document).ready(function() {
             dataType: "JSON",
             url: "/signIn",
             type: "POST",
+            data : $("#signInForm").serialize(),
             success: function(data) {
                 if (data == "failed")
                     alert("ID 또는 비밀번호를 확인하세요");
@@ -15,7 +16,8 @@ $(document).ready(function() {
         $.ajax({
             dataType: "JSON",
             url: "/signUp"
-            type: "POST",
+            type : "POST",
+            data : $("#signUpForm").serialize(),
             success: function(data) {
 
             };
