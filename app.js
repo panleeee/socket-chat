@@ -42,11 +42,21 @@ app.get('/chatroom/:room', function(req, res) {
 });
 
 app.get('/waiting',function (req,res) {
-    res.send("Hello world!");
-    for room in Object.keys(io.sockets.adapter.rooms){
-        console.log(room);
-    }
-    console.log(Object.keys(io.sockets.adapter.rooms));
+    var rooms = io.sockets.adapter.rooms;
+    roomInfo = Object.keys(io.sockets.adapter.rooms);
+    res.send(`
+      <!DOCTYPE html>
+      <html>
+      <head>
+      <title> waiting room </title>
+      </head>
+      <body>
+        ${Object.keys(rooms)}
+      </body>
+      `);
+      // var obj = JSON.parse(rooms[roomInfo[0]]);
+      console.log(rooms[roomInfo[0]['Room']]);
+
 });
 
 app.post('/checkID', function(req, res) {
