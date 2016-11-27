@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>waiting room</title>
+    <style media="screen">
+        .room {
+            border: 1px solid #000;
+            width: 70%;
+            height: 10vh;
+            padding: 2%;
+            margin: auto;
+            margin-top: 3%;
+        }
+
+        #nou {
+            float: right;
+            margin-top: 6%;
+            font-size: 30px;
+        }
+
+        #hello {
+            font-size: 50px;
+        }
+
+        a {
+            text-decoration: none;
+            color: #000;
+        }
+
+        body {
+            text-align: center;
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha.5/css/bootstrap.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha.5/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+    <p id="hello">Waiting Room</p>
+    <% for(roomNum in rooms){ %>
+        <% var url = "chatroom/"+rooms[roomNum].toString() %>
+            <% var roomName = rooms[roomNum]%>
+                <% console.log(roomInfo)%>
+                    <a href=<%= url %>>
+                        <div class="room">
+                            <span>현재 인원 : <%= roomInfo[roomName].length %></span>
+                            <h1><%= rooms[roomNum] %></h1>
+                            <span id="nou"><%= parseInt(roomNum)+1 %></span>
+                        </div>
+                    </a>
+                    <%}%>
+</body>
+
+</html>

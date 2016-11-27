@@ -5,7 +5,8 @@
 
 body{
     background-color: #9abad3;
-        font-family: 'over' !important;
+    font-family: 'over' !important;
+    font-size: 40px;
 }
 
 #content{
@@ -60,15 +61,22 @@ body{
     position: fixed;
     bottom: 0;
     left: 0;
+    display: inline;
+    width: 100vw;
 }
 #msg{
-    height: 15vh;
-}
-#submit{
-    height: 15vh;
-}
-footer{
+    height: 20vh;
+    width: 80%;
     position: absolute;
     bottom: 0;
-    left: 0;
+    left:0;
+    font-size: 40px;
+}
+#submit{
+    height: 20vh;
+    width:  20%;
+    position: absolute;
+    font-size: 50px;
+    bottom: 0;
+    left:80%;
 }

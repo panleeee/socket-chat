@@ -28,6 +28,11 @@ app.use(bodyParser.urlencoded({
     extended: true
 }));
 app.use(bodyParser.text());
+app.use(function (req,res,next) {
+    // if(typeof req.session.status == "undefined")
+    //     redirect('/');
+    next();
+});
 
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
@@ -38,25 +43,17 @@ app.get('/', function(req, res) {
 
 app.get('/chatroom/:room', function(req, res) {
     roomName = req.params.room;
-    res.sendFile(__dirname + '/public/html/chatroom.html');
+    res.render('chatroom',{roomName : roomName});
+});
+
+app.get('/logout',function (req,res) {
+    req.session.status = null;
 });
 
 app.get('/waiting',function (req,res) {
-    var rooms = io.sockets.adapter.rooms;
-    roomInfo = Object.keys(io.sockets.adapter.rooms);
-    res.send(`
-      <!DOCTYPE html>
-      <html>
-      <head>
-      <title> waiting room </title>
-      </head>
-      <body>
-        ${Object.keys(rooms)}
-      </body>
-      `);
-      // var obj = JSON.parse(rooms[roomInfo[0]]);
-      console.log(rooms[roomInfo[0]['Room']]);
-
+    var roomInfo = io.sockets.adapter.rooms;
+    rooms = Object.keys(io.sockets.adapter.rooms);
+    res.render('waiting',{roomInfo :  roomInfo,rooms :rooms});
 });
 
 app.post('/checkID', function(req, res) {
@@ -122,7 +119,8 @@ app.post('/signIn', function(req, res) {
             console.log(err);
 
         if (rows.length > 0) {
-            // req.session.nickname = rows;
+            req.session.nickname = rows;
+            req.session.status = 'login';
             res.redirect('/');
         } else {
             res.send("dontExist");
@@ -135,7 +133,11 @@ io.on('connection', function(socket) {
     console.log('connected!');
     socket.leave(socket.id);
     socket.join(roomName);
-    console.log(io.sockets.adapter.rooms);
+    var rooms = io.sockets.adapter.rooms;
+    for(roomNum in rooms){
+        console.log(rooms[roomNum].length);
+    }
+
     socket.on('sendMsg', function(data) {
         var newData = {
             "desc": data,

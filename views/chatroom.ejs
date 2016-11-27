@@ -2,7 +2,7 @@
 <html>
     <head>
         <meta charset="utf-8">
-        <title>index</title>
+        <title><%=roomName%></title>
         <script src="/socket.io/socket.io.js"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
         <script src="../js/chatroom.js"></script>
@@ -10,11 +10,10 @@
     </head>
     <body>
         <section>
-        <h1 style="font-size : 60px;">디스 이스 채팅룸</h1>
+        <h1 style="font-size : 4rem;"><%=roomName%></h1>
         <hr>
         <div id="content">
 
-        </p>
         </div>
         <div id="text">
             <textarea name="msg" rows="8" cols="40" placeholder="Please type a message" id="msg"></textarea>
